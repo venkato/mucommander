@@ -15,11 +15,11 @@ package com.mucommander.commons.file;
  */
 public class DefaultSchemeHandler implements SchemeHandler {
 
-    protected SchemeParser parser;
-    protected int standardPort;
-    protected String pathSeparator;
-    protected AuthenticationType authenticationType;
-    protected Credentials guestCredentials;
+    public SchemeParser parser;
+    public int standardPort;
+    public String pathSeparator;
+    public AuthenticationType authenticationType;
+    public Credentials guestCredentials;
 
     /**
      * Creates a DefaultSchemeHandler with default values that suit schemes in which the scheme name is not included

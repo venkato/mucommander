@@ -82,6 +82,9 @@ public class BackupInputStream extends FilterInputStream implements BackupConsta
             return backup.getInputStream();
 
         // Opens a stream on the target file.
+        if(!file.exists()){
+            throw new FileNotFoundException(file.toString());
+        }
         return file.getInputStream();
     }
 

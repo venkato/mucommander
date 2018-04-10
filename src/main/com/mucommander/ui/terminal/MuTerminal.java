@@ -55,14 +55,14 @@ public class MuTerminal {
         super();
         this.mainFrame = mainFrame;
         this.settingsProvider = new TerminalSettingsProvider();
-        try {
-            prepareLibraries();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            prepareLibraries();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
         this.ttyConnector = createTtyConnector(getCurrentFolder());
 
-        BasicConfigurator.configureDefaultContext();
+//        BasicConfigurator.configureDefaultContext();
 
         termWidget = new JediTermWidget(settingsProvider) {
             @Override
@@ -160,7 +160,7 @@ public class MuTerminal {
     }
 
 
-    private void prepareLibraries() throws IOException {
+    public static void prepareLibraries() throws IOException {
         String jarPath = FileUtils.getJarPath();
 
         switch (OsFamily.getCurrent()) {

@@ -40,7 +40,7 @@ import com.mucommander.ui.main.tabs.ConfFileTableTab;
  */
 public class CommandLineMainFrameBuilder extends MainFrameBuilder {
 
-	private final List<MainFrame> mainFrames = new LinkedList<>();
+	public final List<MainFrame> mainFrames = new LinkedList<>();
 	
 	public CommandLineMainFrameBuilder(String[] folders) {
 		for(int i=0; i < folders.length; i += 2) {

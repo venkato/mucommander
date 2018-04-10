@@ -38,7 +38,7 @@ public class ShutdownHook extends Thread {
 	private static Logger logger;
 	
     /** Whether shutdown tasks have been performed already. */
-    private static boolean shutdownTasksPerformed;
+    public static boolean shutdownTasksPerformed;
 
     /**
      * Creates a new <code>ShutdownHook</code>.

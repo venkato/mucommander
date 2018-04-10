@@ -221,7 +221,7 @@ public class LocationTextField extends ProgressTextField implements LocationList
      * 
      * @return true if a malformed url was entered, false otherwise.
      */
-    private boolean textFieldValidated() {
+    public boolean textFieldValidated() {
         String location = getText().trim();
 
         // Under Windows, trim the entered path for the following reason.

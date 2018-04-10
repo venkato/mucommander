@@ -29,12 +29,12 @@ import java.util.List;
  *
  * @author Maxence Bernard, Vassil Dichev
  */
-class SFTPConnectionHandler extends ConnectionHandler {
+public class SFTPConnectionHandler extends ConnectionHandler {
     private static final Logger LOGGER = LoggerFactory.getLogger(SFTPConnectionHandler.class);
 
-    Ssh2Client sshClient;
-    SftpClient sftpClient;
-    SftpSubsystemChannel sftpSubsystem;
+    public Ssh2Client sshClient;
+    public SftpClient sftpClient;
+    public SftpSubsystemChannel sftpSubsystem;
 
     /** 'Password' SSH authentication method */
     private final static String PASSWORD_AUTH_METHOD = "password";
@@ -46,7 +46,7 @@ class SFTPConnectionHandler extends ConnectionHandler {
     private final static String PUBLIC_KEY_AUTH_METHOD = "publickey";
 
 
-    SFTPConnectionHandler(FileURL location) {
+    public SFTPConnectionHandler(FileURL location) {
         super(location);
     }
 

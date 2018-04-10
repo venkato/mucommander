@@ -527,24 +527,27 @@ public class CommandManager implements CommandBuilder {
     public static void loadAssociations() throws IOException, CommandException {
         AbstractFile file = getAssociationFile();
         getLogger().debug("Loading associations from file: " + file.getAbsolutePath());
-
-        // Tries to load the associations file.
-        // Associations are not considered to be modified by this. 
-        InputStream in = null;
-        try {
-            in = new BackupInputStream(file);
-            AssociationReader.read(in, new AssociationFactory());
-        } finally {
-            wereAssociationsModified = false;
-            // Makes sure the input stream is closed.
-            // TODO use autoclosable
-            if (in != null) {
-                try {
-                    in.close();
-                } catch (Exception e) {
-                    // Ignores this.
+        if(file.exists()) {
+            // Tries to load the associations file.
+            // Associations are not considered to be modified by this.
+            InputStream in = null;
+            try {
+                in = new BackupInputStream(file);
+                AssociationReader.read(in, new AssociationFactory());
+            } finally {
+                wereAssociationsModified = false;
+                // Makes sure the input stream is closed.
+                // TODO use autoclosable
+                if (in != null) {
+                    try {
+                        in.close();
+                    } catch (Exception e) {
+                        // Ignores this.
+                    }
                 }
             }
+        }else{
+            logger.info("file not exist : "+file.getAbsolutePath());
         }
     }
 
@@ -714,23 +717,27 @@ public class CommandManager implements CommandBuilder {
         AbstractFile file = getCommandFile();
         getLogger().debug("Loading custom commands from: " + file.getAbsolutePath());
 
-        // Tries to load the commands file.
-        // Commands are not considered to be modified by this.
-        InputStream in = null;
-        try {
-            in = new BackupInputStream(file);
-            CommandReader.read(in, new CommandManager());
-        } finally {
-            wereCommandsModified = false;
+        if(file.exists()) {
+            // Tries to load the commands file.
+            // Commands are not considered to be modified by this.
+            InputStream in = null;
+            try {
+                in = new BackupInputStream(file);
+                CommandReader.read(in, new CommandManager());
+            } finally {
+                wereCommandsModified = false;
 
-            // Makes sure the input stream is closed.
-            if (in != null) {
-                try {
-                    in.close();
-                } catch(Exception e) {
-                    // Ignores this.
+                // Makes sure the input stream is closed.
+                if (in != null) {
+                    try {
+                        in.close();
+                    } catch (Exception e) {
+                        // Ignores this.
+                    }
                 }
             }
+        }else{
+            logger.info("cmd file not exist : "+file.getAbsolutePath());
         }
     }
 

@@ -20,19 +20,19 @@ public class ConnectionPool implements Runnable {
     private static final Logger LOGGER = LoggerFactory.getLogger(ConnectionPool.class);
 
     /** Singleton instance */
-    private static ConnectionPool instance = new ConnectionPool();
+    public static ConnectionPool instance = new ConnectionPool();
 
     /** List of registered ConnectionHandler */
-    private final static List<ConnectionHandler> connectionHandlers = new ArrayList<>();
+    public final static List<ConnectionHandler> connectionHandlers = new ArrayList<>();
 
     /** The thread that monitors connections, null if there currently is no registered ConnectionHandler */
-    private static Thread monitorThread;
+    public static Thread monitorThread;
 
     /** Controls how of often the thread monitor checks connections */
-    private final static int MONITOR_SLEEP_PERIOD = 1000;
+    public final static int MONITOR_SLEEP_PERIOD = 1000;
 
     /** Maximum number of simultaneous connections per realm/credentials combo */
-    private final static int MAX_CONNECTIONS_PER_REALM = 4;
+    public final static int MAX_CONNECTIONS_PER_REALM = 4;
 
 
     public static ConnectionHandler getConnectionHandler(ConnectionHandlerFactory connectionHandlerFactory, FileURL url, boolean acquireLock) throws InterruptedIOException {

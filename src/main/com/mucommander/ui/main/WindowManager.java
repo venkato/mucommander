@@ -129,7 +129,7 @@ public class WindowManager implements WindowListener, ConfigurationListener {
         return instance;
     }
     
-	
+
     /**
      * Returns the <code>MainFrame</code> instance that was last active. Note that the returned <code>MainFrame</code>
      * may or may not be currently active.

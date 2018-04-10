@@ -110,9 +110,9 @@ public class TextEditorCaretListener implements CaretListener {
     }
 
     private void checkAssemblerInstruction(String str) {
-        if (!isAvrAssembler()) {
-            return;
-        }
+//        if (!isAvrAssembler()) {
+//            return;
+//        }
         StringTokenizer tokenizer = new StringTokenizer(str, " \t\n\r");
         boolean found = false;
         while (tokenizer.hasMoreElements()) {
@@ -193,9 +193,9 @@ public class TextEditorCaretListener implements CaretListener {
         setStatusColor(-1);
     }
 
-    private boolean isAvrAssembler() {
-        return textEditor.getTextArea().getFileType() == FileType.ASSEMBLER_AVR;
-    }
+//    private boolean isAvrAssembler() {
+//        return textEditor.getTextArea().getFileType() == FileType.ASSEMBLER_AVR;
+//    }
 
     private AbstractFile getIncludeFile(String fileName) {
         if (fileName == null || fileName.isEmpty()) {

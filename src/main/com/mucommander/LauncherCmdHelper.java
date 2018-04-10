@@ -331,11 +331,13 @@ public class LauncherCmdHelper {
      * Prints a configuration file specific error message.
      */
     void printFileError(String msg, Throwable exception, boolean quit) {
+        exception.printStackTrace();
         StringBuilder error;
 
         error = createErrorMessage(msg, exception, quit);
-        if (!quit)
+        if (!quit) {
             error.append(". Using default values.");
+        }
 
         printError(error.toString(), quit);
     }

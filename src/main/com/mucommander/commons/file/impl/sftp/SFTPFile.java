@@ -79,7 +79,7 @@ public class SFTPFile extends ProtocolFile {
     private static long attributeCachingPeriod = 60000;
 
     /** a SFTPConnectionHandlerFactory instance */
-    private final static SFTPConnectionHandlerFactory CONN_HANDLER_FACTORY = new SFTPConnectionHandlerFactory();
+    public final static SFTPConnectionHandlerFactory CONN_HANDLER_FACTORY = new SFTPConnectionHandlerFactory();
 
     /** Name of the property that holds the path to a private key. This property is optional; if it is set, private key
      * authentication is used. */
